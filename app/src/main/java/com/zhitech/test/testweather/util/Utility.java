@@ -34,7 +34,7 @@ public class Utility {
                                                String response,
                                                int provinceId){
         if(!TextUtils.isEmpty(response)){
-            String[] allCities = response.split(".");
+            String[] allCities = response.split(",");
             if((null != allCities) && (allCities.length > 0)){
                 for(String c : allCities){
                     String[] array = c.split("\\|");

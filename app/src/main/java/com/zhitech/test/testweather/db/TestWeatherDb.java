@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 /**
  * Created by chendingguo1 on 2016/11/14.
@@ -46,6 +47,7 @@ public class TestWeatherDb {
             contentValues.put("province_name", province.getProvinceName());
             contentValues.put("province_code", province.getProvinceCode());
             db.insert("Province", null, contentValues);
+            Log.d("savePovice()-->", "province_code:"+province.getProvinceCode());
         }
     }
 
@@ -75,6 +77,7 @@ public class TestWeatherDb {
             contentValues.put("city_code", city.getCityCode());
             contentValues.put("province_id", city.getProvinceId());
             db.insert("City", null, contentValues);
+            Log.d("saveCity()-->", "city_code:"+city.getCityCode());
         }
     }
 

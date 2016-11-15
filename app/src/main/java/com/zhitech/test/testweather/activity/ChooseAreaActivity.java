@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by chendingguo1 on 2016/11/15.
+ * Created by cdg on 2016/11/15.
  */
 
 public class ChooseAreaActivity extends Activity {
@@ -70,6 +71,7 @@ public class ChooseAreaActivity extends Activity {
                 }else if (currentLevel == LEVEL_CITY){
                     selectedCity = cityList.get(index);
                     queryCounties();
+                }else if(currentLevel == LEVEL_COUNTY){
 
                 }
             }
@@ -95,6 +97,7 @@ public class ChooseAreaActivity extends Activity {
 
     private void queryCities(){
         cityList = testWeatherDb.loadCities(selectedProvince.getId());
+        Log.d("queryCities()->", "selectedProvince.getId()="+selectedProvince.getId());
         if(cityList.size() > 0){
             dataList.clear();
             for(City city : cityList){
@@ -129,6 +132,7 @@ public class ChooseAreaActivity extends Activity {
         String address;
         if(!TextUtils.isEmpty(code)){
             address = "http://www.weather.com.cn/data/list3/city" + code + ".xml";
+            Log.d("queryFromServer", "address="+address);
 
         }else{
             address = "http://www.weather.com.cn/data/list3/city.xml";
