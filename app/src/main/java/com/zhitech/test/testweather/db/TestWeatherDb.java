@@ -108,7 +108,7 @@ public class TestWeatherDb {
     }
 
     //get county list from db
-    List<County> loadCounties(int cityId){
+    public List<County> loadCounties(int cityId){
         List<County> listCounty = new ArrayList<County>();
         Cursor cursor = db.query("County", null, "city_id = ?",
                 new String[]{String.valueOf(cityId)}, null, null, null);
