@@ -6,8 +6,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.CharBuffer;
+
 /**
- * Created by chendingguo1 on 2016/11/15.
+ * Created by cdg on 2016/11/15.
  */
 
 public class HttpUtil {
@@ -24,11 +26,20 @@ public class HttpUtil {
                     connection.setConnectTimeout(8000);
                     connection.setReadTimeout(8000);
                     InputStream in = connection.getInputStream();
+
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                     StringBuilder response = new StringBuilder();
                     String line;
-                    while((line = reader.readLine()) != null){
+                    String strTest;
+                    if(address.contains("html")){
+                        char[] ca = new char[256];
+                        int i1 = reader.read(ca);
+                        line = String.valueOf(ca);
                         response.append(line);
+                    }else {
+                        while ((line = reader.readLine()) != null) {
+                            response.append(line);
+                        }
                     }
                     if(null != listener){
                         //call back onFinish()

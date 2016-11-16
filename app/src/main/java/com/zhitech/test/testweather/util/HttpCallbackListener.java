@@ -1,7 +1,7 @@
 package com.zhitech.test.testweather.util;
 
 /**
- * Created by chendingguo1 on 2016/11/15.
+ * Created by cdg on 2016/11/15.
  */
 
 public interface HttpCallbackListener {

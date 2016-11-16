@@ -1,7 +1,7 @@
 package com.zhitech.test.testweather.model;
 
 /**
- * Created by chendingguo1 on 2016/11/14.
+ * Created by cdg on 2016/11/14.
  */
 
 public class Province {

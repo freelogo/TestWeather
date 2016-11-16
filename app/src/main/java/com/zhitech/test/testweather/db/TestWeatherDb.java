@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 /**
- * Created by chendingguo1 on 2016/11/14.
+ * Created by cdg on 2016/11/14.
  */
 
 import com.zhitech.test.testweather.model.*;
@@ -89,6 +89,7 @@ public class TestWeatherDb {
         if (cursor.moveToFirst()) {
             do {
                 City city = new City();
+                city.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 city.setCityName(cursor.getString(cursor.getColumnIndex("city_name")));
                 city.setCityCode(cursor.getString(cursor.getColumnIndex("city_code")));
                 city.setProvinceId(provinceId);
@@ -118,6 +119,7 @@ public class TestWeatherDb {
         if(cursor.moveToFirst()){
             do{
                 County county = new County();
+                county.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 county.setCountyName(cursor.getString(cursor.getColumnIndex("county_name")));
                 county.setCountyCode(cursor.getString(cursor.getColumnIndex("county_code")));
                 county.setCityId(cityId);
