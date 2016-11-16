@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.util.Date;
 import java.util.Locale;
 
+
 /**
  * Created by cdg on 2016/11/15.
  */
@@ -115,7 +116,7 @@ public class Utility {
                                        String weatherCode, String temp1,
                                        String temp2, String weatherDesp,
                                        String publishTime){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日", Locale.CHINA);
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         SharedPreferences.Editor editor =
                 PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putBoolean("city_selected", true);
